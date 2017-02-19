@@ -1,0 +1,16 @@
+﻿body {
+}
+#searchbox{
+  width:200px;
+  height:23px;
+}
+#searchbox input{
+  width:130px;
+  height:23px;
+}
+
+#searchbox button{
+  width:60px;
+  height:23px;
+  margin-left:-10px;
+}

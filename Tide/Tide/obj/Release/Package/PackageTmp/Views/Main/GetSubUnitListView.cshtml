@@ -1,0 +1,16 @@
+﻿@model  IEnumerable<Tide.Models.SubUnit>
+
+<ul data-role="listview" data-inset="true">
+    @foreach (var Item in @Model)
+    {
+        <li>
+            <a onclick="openpanel(this, '@Item.UnitID')">
+                <h2>@Item.UnitName</h2>
+            </a>
+        </li>
+    }
+</ul>
+
+
+
+

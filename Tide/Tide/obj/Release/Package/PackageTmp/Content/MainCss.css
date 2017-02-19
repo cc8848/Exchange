@@ -1,0 +1,23 @@
+﻿body {
+}
+
+/*table {
+    border-collapse: collapse;
+}*/
+.subunit table,.subunit td, th
+{
+	border:1px solid green;
+}
+th
+{
+	background-color:green;
+	color:white;
+}
+
+.title{
+   width:100%;
+   text-align:center;
+}
+
+
+

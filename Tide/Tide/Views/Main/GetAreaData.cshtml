@@ -1,0 +1,22 @@
+﻿@model  IEnumerable<Tide.Models.DetailItem>
+
+
+<ul>
+    @foreach (var Item in @Model)
+    {
+        <li>
+            <div>
+                <p>@Item.Name</p>
+                <ul>
+                    <li>成立时间：@Item.FoundingTime</li>
+                    <li>主要交易品种：@Item.MajorTradings</li>
+                    <li>地址：@Item.Address</li>
+                </ul>
+                <span>
+                    @Html.ActionLink("子单位 >", "SubUnits", new { id = @Item.ID, exchangeName = @Item.Name }) 
+                </span>
+            </div>
+        </li>
+    }
+</ul>
+

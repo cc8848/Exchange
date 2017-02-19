@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+@model  IEnumerable<Tide.Models.SubUnit>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="~/Content/MainCss.css" rel="stylesheet" />
+        <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+        <script src="~/Scripts/MainJS/echarts.min.js"></script>
+        <script src="~/Scripts/MainJS/china.js"></script>
+        <script src="~/Scripts/MainJS/Index.js"></script>
+        <script src="~/Scripts/MainJS/Search.js"></script>
+        <title>子单位搜索</title>
+    </head>
+    <body>
+        <div data-role="page" id="pageone">
+            <div data-role="header" data-position="fixed" style="position: fixed;">
+                <table>
+                    <tr>
+                        <td><img width="30" height="30" src="~/Images/logo.png" /></td>
+                        <td class="title"><span>汇盈财经</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div data-role="panel" id="myPanel" data-dismissible="true" >
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <h3>子单位搜索</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="width: 100%"><input id="myUnitFilter" placeholder="根据名称搜索.." type="text" onkeyup="keyupevent()"></td>
+                            <td><a onclick="searchunit()" class="ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext">图标</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="subsuitdetail">
+                </div>
+            </div>
+            
+            <div data-role="footer" data-position="fixed" style="position: fixed;">
+                <div data-role="navbar">
+                    <ul>
+                        <li>@Html.ActionLink("地图", "Index") </li>
+                        <li>@Html.ActionLink("搜交易所", "SearchList")</li>
+                        <li>@Html.ActionLink("搜子单位", "SearchUnit")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
