@@ -27,24 +27,28 @@ namespace Tide.Controllers
 
         public ActionResult Index()
         {
+            var useragent = Request.UserAgent;
+
+            if (!IsMobile(useragent))
+                return View("Indexm");
             return View();
         }
 
         public ActionResult Indexm()
         {
-            var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\aibaopen.accdb");
+            //var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\aibaopen.accdb");
 
-            try
-            {
-                heper = new AcessDBHelper();
-                currentDt = heper.QueryData(heper.SelectJYSINfo("Exchange"));
-            }
-            catch(Exception ex)
-            {
-                path = ex.Message;
-            }
+            //try
+            //{
+            //    heper = new AcessDBHelper();
+            //    currentDt = heper.QueryData(heper.SelectJYSINfo("Exchange"));
+            //}
+            //catch(Exception ex)
+            //{
+            //    path = ex.Message;
+            //}
            
-            ViewBag.Title = path;
+            //ViewBag.Title = path;
 
             return View();
         }
@@ -324,6 +328,31 @@ namespace Tide.Controllers
 
             return item;
         }
+
+
+        /// <summary> 
+        /// 根据 Agent 判断是否是智能手机 
+        /// </summary> 
+        /// <returns></returns> 
+        public static bool IsMobile(string agent)
+        {
+            bool flag = false;
+            string[] keywords = { "Android", "iPhone", "iPod", "iPad", "Windows Phone", "MQQBrowser" };
+            //排除Window 桌面系统 和 苹果桌面系统 
+            if (!agent.Contains("Windows NT") && !agent.Contains("Macintosh"))
+            {
+                foreach (string item in keywords)
+                {
+                    if (agent.Contains(item))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            return flag;
+        } 
+
     }
 
 }
